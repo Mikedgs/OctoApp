@@ -1,14 +1,15 @@
 ﻿using Microsoft.Owin;
+using OctopusApp;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(OctopusApp.Startup))]
+[assembly: OwinStartup(typeof (Startup))]
+
 namespace OctopusApp
 {
-    public partial class Startup
+    public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
-
         }
     }
 }

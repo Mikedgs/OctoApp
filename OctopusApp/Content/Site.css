@@ -1,54 +1,46 @@
 ﻿body {
-    padding-top: 50px;
     padding-bottom: 20px;
+    padding-top: 50px;
 }
 
 /* Set padding to keep content from hitting the edges */
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
+
 input,
 select,
-textarea {
-    max-width: 280px;
-}
+textarea { max-width: 280px; }
 
-body {
-    background-color: beige;
-}
+body { background-color: beige; }
 
-.body-content {
-    background-color: white;
-}
+.body-content { background-color: white; }
+
+
 
 .delete {
     color: red;
     float: right;
 }
 
-.delete:hover {
-    cursor: pointer;
-}
+.delete:hover { cursor: pointer; }
 
-.delete-label {
-    float: right;
-}
+.delete-label { float: right; }
 
 .final-list {
-    padding-left: 0;
     list-style: none;
+    padding-left: 0;
 }
 
-.name {
-    font-weight: 700;
-}
+.name { font-weight: 700; }
 
 .component-header {
-    font-size: 17px;
     border-bottom: 1px solid black;
+    font-size: 17px;
     margin-bottom: 5px;
 }
 
@@ -57,53 +49,33 @@ body {
     padding-top: 10px;
 }
 
-.new-recipe input {
-    margin-bottom: 10px;
-}
+.new-recipe input { margin-bottom: 10px; }
 
-.new-recipe label {
-    width: 200px;
-}
+.new-recipe label { width: 200px; }
 
-.duplicate-error {
-    color: red;
-}
+.duplicate-error { color: red; }
 
-.add-to-recipe {
-    float: right;
-}
+.add-to-recipe { float: right; }
 
-.recipe-components {
-    padding-left: 0px;
-}
+.recipe-components { padding-left: 0px; }
 
 .recipe-components li {
-    list-style: none;
     clear: both;
+    list-style: none;
     padding-bottom: 5px;
 }
 
-.release-version {
-    float: right;
-}
+.release-version { float: right; }
 
 .component-row {
     border-bottom: 1px solid lightgrey;
     padding-bottom: 3px;
 }
 
-.version {
-    font-size: 10px;
-}
+.version { font-size: 10px; }
 
-.recipe-accordion a {
-    color: #428bca;
-}
+.recipe-accordion a { color: #428bca; }
 
-.current-recipes {
-    padding-left: 20px;
-}
+.current-recipes { padding-left: 20px; }
 
-.error {
-    color: red;
-}
+.error { color: red; }

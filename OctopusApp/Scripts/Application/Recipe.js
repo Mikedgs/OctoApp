@@ -1,4 +1,4 @@
-﻿var Recipe = (function () {
+﻿var Recipe = (function() {
     var addRecipeButton = $('.add-recipe');
 
     var displayRecipe = function() {

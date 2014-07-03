@@ -12,7 +12,8 @@ namespace OctopusApp.Models
         private readonly IRepository<DeploymentComponent> _componentRepository;
         private readonly IRepository<OctopusRecipe> _recipeRepository;
 
-        public RecipeRepositoryWrapper(IRepository<DeploymentComponent> componentRepository, IRepository<OctopusRecipe> recipeRepository)
+        public RecipeRepositoryWrapper(IRepository<DeploymentComponent> componentRepository,
+            IRepository<OctopusRecipe> recipeRepository)
         {
             _componentRepository = componentRepository;
             _recipeRepository = recipeRepository;

@@ -11,7 +11,8 @@ namespace OctopusApp.Controllers
         private readonly IRepository<OctopusRecipe> _recipeRepository;
         private readonly IRecipeRepositoryWrapper _recipeRepositoryWrapper;
 
-        public RecipeController(IRepository<OctopusRecipe> recipeRepository, IRecipeRepositoryWrapper recipeRepositoryWrapper)
+        public RecipeController(IRepository<OctopusRecipe> recipeRepository,
+            IRecipeRepositoryWrapper recipeRepositoryWrapper)
         {
             _recipeRepository = recipeRepository;
             _recipeRepositoryWrapper = recipeRepositoryWrapper;

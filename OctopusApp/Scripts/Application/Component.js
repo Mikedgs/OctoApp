@@ -1,4 +1,4 @@
-﻿var Component = (function () {
+﻿var Component = (function() {
     var addToRecipeButton = $('.add-to-recipe');
 
     var addComponentToNewRecipe = function() {

@@ -1,4 +1,4 @@
-﻿var NewRecipeView = (function () {
+﻿var NewRecipeView = (function() {
     var error = $(".duplicate-error");
     var listOfComponentsNode = $(".final-list");
     var submitForm = $('form');
@@ -19,13 +19,11 @@
 
     var duplicateError = function(self) {
         $(self).parent().find(error).text(duplicateErrorMessage);
-    }
-
+    };
     var removeComponent = function(self) {
         $(self).parent().remove();
         $("#" + $(self).parent().find(".id").text()).remove();
-    }
-
+    };
     return {
         showRecipe: showRecipe,
         resetErrors: resetErrors,
