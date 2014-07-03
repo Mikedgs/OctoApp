@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<model xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.1.0.0" name="OctopusApp" targetNamespace="OctopusApp.Plumbing" databaseProvider="SqlServer2008" connectionString="Data Source=asus\sqlexpress;Initial Catalog=Octopus;Integrated Security=True;Pooling=False" pluralizedInDatabase="false" mediumTrustCompatibility="false" xmlns="http://namespaces.mindscape.co.nz/lightspeed">
+  <entities>
+    <entity name="DeploymentComponent" identityType="Int32" cacheExpiry="0">
+      <entityProperties>
+        <entityProperty name="ProjectId" columnName="project_id" privateSetter="false" />
+        <entityProperty name="ProjectName" columnName="project_name" privateSetter="false">
+          <validations>
+            <presenceValidation />
+            <lengthValidation minimumLength="0" maximumLength="100" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="ProjectDescription" columnName="project_description" privateSetter="false">
+          <validations>
+            <presenceValidation />
+            <lengthValidation minimumLength="0" maximumLength="1000" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="ReleaseVersion" columnName="release_version" privateSetter="false">
+          <validations>
+            <presenceValidation />
+            <lengthValidation minimumLength="0" maximumLength="100" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="ReleaseId" columnName="release_id" privateSetter="false">
+          <validations>
+            <presenceValidation />
+            <lengthValidation minimumLength="0" maximumLength="100" />
+          </validations>
+        </entityProperty>
+      </entityProperties>
+      <oneToManyAssociations>
+        <oneToManyAssociation Id="2cea0fa7-e3e3-4bd6-8251-156875c42e05" collectionName="RecipeComponents" backreferenceName="DeploymentComponent" isNullable="false" columnName="DeploymentComponent_id">
+          <entityMoniker name="/OctopusApp/RecipeComponent" />
+        </oneToManyAssociation>
+      </oneToManyAssociations>
+      <throughAssociationTargets>
+        <throughAssociation Id="4421d2ee-d0cd-441c-a41c-f8bd25f2101f" sourceCollectionName="DeploymentComponents" targetCollectionName="OctopusRecipes">
+          <entityMoniker name="/OctopusApp/OctopusRecipe" />
+          <throughEntity>
+            <entityMoniker name="/OctopusApp/RecipeComponent" />
+          </throughEntity>
+        </throughAssociation>
+      </throughAssociationTargets>
+    </entity>
+    <entity name="RecipeComponent" identityType="Int32" cacheExpiry="0" tableName="RecipeComponents" />
+    <entity name="OctopusRecipe" identityType="Int32" cacheExpiry="0">
+      <entityProperties>
+        <entityProperty name="Name" privateSetter="false">
+          <validations>
+            <presenceValidation />
+            <lengthValidation minimumLength="0" maximumLength="100" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="SourceEnvironmentId" isNullable="true" columnName="source_environment_id" privateSetter="false">
+          <validations>
+            <lengthValidation minimumLength="0" maximumLength="50" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="SourceEnvironmentName" isNullable="true" columnName="source_environment_name" privateSetter="false">
+          <validations>
+            <lengthValidation minimumLength="0" maximumLength="100" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="DateCreated" dataType="DateTime" columnName="date_created" privateSetter="false" />
+        <entityProperty name="CreatedBy" isNullable="true" columnName="created_by" privateSetter="false">
+          <validations>
+            <lengthValidation minimumLength="0" maximumLength="50" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="RecipeId" columnName="recipe_id" privateSetter="false">
+          <validations>
+            <presenceValidation />
+            <lengthValidation minimumLength="0" maximumLength="100" />
+          </validations>
+        </entityProperty>
+      </entityProperties>
+      <oneToManyAssociations>
+        <oneToManyAssociation Id="34d83e06-bd47-41ce-8173-50ff46d7135c" collectionName="RecipeComponents" backreferenceName="OctopusRecipe" isNullable="false" columnName="OctopusRecipe_id">
+          <entityMoniker name="/OctopusApp/RecipeComponent" />
+        </oneToManyAssociation>
+      </oneToManyAssociations>
+    </entity>
+  </entities>
+</model>

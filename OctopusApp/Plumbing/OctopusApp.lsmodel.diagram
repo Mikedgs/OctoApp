@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<minimalLanguageDiagram dslVersion="1.1.0.0" absoluteBounds="0, 0, 11, 8.5" name="OctopusApp">
+  <modelMoniker name="/OctopusApp" />
+  <nestedChildShapes>
+    <entityShape Id="167782f3-eb42-4dfb-897e-af6b2496b5c9" absoluteBounds="3.875, 2.375, 1.5, 1.4715071614583333">
+      <entityMoniker name="/OctopusApp/DeploymentComponent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2691bb2-8f9a-4c2f-a360-0ae925f60fe0" absoluteBounds="3.89, 2.785, 1.4700000000000002, 0.96150716145833326" name="Properties" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </entityShape>
+    <entityShape Id="a443e72f-07fd-471a-9e96-316f5d16e04d" absoluteBounds="6.125, 3.125, 1.5, 0.51000000000000023">
+      <entityMoniker name="/OctopusApp/RecipeComponent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dbb68b3f-54b2-4dda-ac58-57fc75cc904b" absoluteBounds="6.14, 3.535, 1.4700000000000002, 0" name="Properties" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </entityShape>
+    <entityShape Id="16afb187-0570-4a22-a3aa-381d659ca098" absoluteBounds="8.375, 3.875, 1.5, 1.6638085937499998">
+      <entityMoniker name="/OctopusApp/OctopusRecipe" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1100afe6-15f5-416c-b268-11646644efae" absoluteBounds="8.39, 4.285, 1.4700000000000002, 1.15380859375" name="Properties" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </entityShape>
+    <oneToManyAssociationConnector edgePoints="[(5.375 : 3.38); (6.125 : 3.38)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <oneToManyAssociationMoniker Id="2cea0fa7-e3e3-4bd6-8251-156875c42e05" />
+      <relativeChildShapes />
+      <nodes>
+        <entityShapeMoniker Id="167782f3-eb42-4dfb-897e-af6b2496b5c9" />
+        <entityShapeMoniker Id="a443e72f-07fd-471a-9e96-316f5d16e04d" />
+      </nodes>
+    </oneToManyAssociationConnector>
+    <throughAssociationConnector edgePoints="[(5.375 : 2.71875); (9.32812625 : 2.71875); (9.32812625 : 3.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <throughAssociationMoniker Id="4421d2ee-d0cd-441c-a41c-f8bd25f2101f" />
+      <relativeChildShapes />
+      <nodes>
+        <entityShapeMoniker Id="167782f3-eb42-4dfb-897e-af6b2496b5c9" />
+        <entityShapeMoniker Id="16afb187-0570-4a22-a3aa-381d659ca098" />
+      </nodes>
+    </throughAssociationConnector>
+    <oneToManyAssociationConnector edgePoints="[(8.820310625 : 3.875); (8.820310625 : 3.38); (7.625 : 3.38)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <oneToManyAssociationMoniker Id="34d83e06-bd47-41ce-8173-50ff46d7135c" />
+      <relativeChildShapes />
+      <nodes>
+        <entityShapeMoniker Id="16afb187-0570-4a22-a3aa-381d659ca098" />
+        <entityShapeMoniker Id="a443e72f-07fd-471a-9e96-316f5d16e04d" />
+      </nodes>
+    </oneToManyAssociationConnector>
+  </nestedChildShapes>
+</minimalLanguageDiagram>

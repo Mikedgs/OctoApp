@@ -1,0 +1,61 @@
+﻿@model OctopusApp.Models.NewRecipeViewModel
+
+@{
+    ViewBag.Title = "New Recipe";
+}
+
+<h2>New Recipe</h2>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Currect Recipes</h2>
+        <ul>
+            @foreach (var recipe in @Model.OctopusRecipes)
+            {
+                <li>
+                    @recipe.Name
+                    <br/>
+                    <a href="#" class="add-recipe" data-id="@recipe.Id">Add To List</a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="col-md-5">
+        <ul class="component-list">
+            @foreach (var recipe in @Model.OctopusRecipes)
+            {
+                <li style="display: none" id="@recipe.Id">
+                    <h3>@recipe.Name</h3>
+                    <ul>
+                    @foreach (var component in @recipe.DeploymentComponents)
+                    {
+                        <li>
+                            <span>
+                                @component.ProjectName,
+                                Version: @component.ReleaseVersion
+                                <span style="display: none" class="id">@component.Id</span>
+                            </span>
+                            <a href="#" class="add-to-project">Add</a>
+                        </li>
+                    }
+                    </ul>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="col-md-4">
+        <ul class="final-list">
+            
+        </ul>
+        @using (@Html.BeginForm("NewRecipe", "Recipe", "POST"))
+        {
+            @Html.LabelFor(x => x.OctopusRecipe.Name) @Html.TextBoxFor(x => x.OctopusRecipe.Name)
+            @Html.LabelFor(x => x.OctopusRecipe.SourceEnvironmentName) @Html.TextBoxFor(x => x.OctopusRecipe.SourceEnvironmentName)
+            @Html.LabelFor(x => x.OctopusRecipe.SourceEnvironmentId) @Html.TextBoxFor(x => x.OctopusRecipe.SourceEnvironmentId)
+            <input type="submit" value="Save Recipe"/>
+        }
+    </div>
+</div>
+
