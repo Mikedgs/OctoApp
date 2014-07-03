@@ -32,11 +32,13 @@
                     {
                         <li>
                             <span>
-                                @component.ProjectName,
+                                <span class="name">@component.ProjectName</span>,
                                 Version: @component.ReleaseVersion
                                 <span style="display: none" class="id">@component.Id</span>
                             </span>
                             <a href="#" class="add-to-project">Add</a>
+                            <br/>
+                            <span class="duplicate-error"></span>
                         </li>
                     }
                     </ul>
