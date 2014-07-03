@@ -5,10 +5,11 @@ using System.Linq.Expressions;
 using Mindscape.LightSpeed;
 using Mindscape.LightSpeed.Linq;
 using Mindscape.LightSpeed.Logging;
+using OctopusApp.Plumbing.Interfaces;
 
 namespace OctopusApp.Plumbing
 {
-    public class Repository<T> where T : Entity<int>
+    public class Repository<T> : IRepository<T> where T : Entity<int>
     {
         public Repository()
         {

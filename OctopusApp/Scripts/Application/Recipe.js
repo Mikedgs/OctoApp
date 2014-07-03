@@ -4,7 +4,7 @@
     var displayRecipe = function() {
         event.preventDefault();
         var id = $(this).attr('data-id');
-        $("#" + id).show();
+        NewRecipeView.showRecipe(id);
     };
 
     return {

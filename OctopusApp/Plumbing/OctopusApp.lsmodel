@@ -3,7 +3,11 @@
   <entities>
     <entity name="DeploymentComponent" identityType="Int32" cacheExpiry="0">
       <entityProperties>
-        <entityProperty name="ProjectId" columnName="project_id" privateSetter="false" />
+        <entityProperty name="ProjectId" columnName="project_id" privateSetter="false">
+          <validations>
+            <presenceValidation />
+          </validations>
+        </entityProperty>
         <entityProperty name="ProjectName" columnName="project_name" privateSetter="false">
           <validations>
             <presenceValidation />
@@ -62,7 +66,11 @@
             <lengthValidation minimumLength="0" maximumLength="100" />
           </validations>
         </entityProperty>
-        <entityProperty name="DateCreated" dataType="DateTime" columnName="date_created" privateSetter="false" />
+        <entityProperty name="DateCreated" dataType="DateTime" columnName="date_created" privateSetter="false">
+          <validations>
+            <presenceValidation />
+          </validations>
+        </entityProperty>
         <entityProperty name="CreatedBy" isNullable="true" columnName="created_by" privateSetter="false">
           <validations>
             <lengthValidation minimumLength="0" maximumLength="50" />

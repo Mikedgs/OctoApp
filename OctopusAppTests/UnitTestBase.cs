@@ -2,7 +2,7 @@
 using Ninject;
 using Ninject.MockingKernel.Moq;
 
-namespace OctopusApp.Plumbing
+namespace OctopusAppTests
 {
     public abstract class UnitTestBase<T>
     {

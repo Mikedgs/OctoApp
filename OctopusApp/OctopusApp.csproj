@@ -202,7 +202,6 @@
       <DependentUpon>OctopusApp.lsmodel</DependentUpon>
     </Compile>
     <Compile Include="Plumbing\Repository.cs" />
-    <Compile Include="Plumbing\UnitTestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -277,6 +276,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Application\Accordions.js" />
     <Content Include="Scripts\Application\App.js" />
+    <Content Include="Scripts\Application\NewRecipeView.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Plumbing\OctopusApp.lsmodel">

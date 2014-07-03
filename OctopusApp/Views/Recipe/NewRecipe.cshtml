@@ -53,12 +53,21 @@
         <ul class="final-list">
             <li class="component-header"><span class="component-list">Component</span><span class="delete-label">Remove</span></li>
         </ul>
+        
+        @if (@Model.Errors.Count > 0)
+        {
+            foreach (var error in @Model.Errors)
+            {
+                <p class="error">@error</p>
+            }
+        }
+
         @using (@Html.BeginForm("NewRecipe", "Recipe", FormMethod.Post, new { @class = "new-recipe" }))
         {
-            @Html.Label("Name: ") @Html.TextBoxFor(x => x.OctopusRecipe.Name)
-            @Html.Label("Recipe Id: ") @Html.TextBoxFor(x => x.OctopusRecipe.RecipeId)
-            @Html.Label("Source Environment Name: ") @Html.TextBoxFor(x => x.OctopusRecipe.SourceEnvironmentName)
-            @Html.Label("Source Environment Id: ") @Html.TextBoxFor(x => x.OctopusRecipe.SourceEnvironmentId)
+            @Html.Label("Name: ") @Html.TextBoxFor(x => x.OctopusRecipe.Name, new { required = true })
+            @Html.Label("Recipe Id: ") @Html.TextBoxFor(x => x.OctopusRecipe.RecipeId, new { required = true })
+            @Html.Label("Source Environment Name: ") @Html.TextBoxFor(x => x.OctopusRecipe.SourceEnvironmentName, new { required = true })
+            @Html.Label("Source Environment Id: ") @Html.TextBoxFor(x => x.OctopusRecipe.SourceEnvironmentId, new { required = true })
             <input type="submit" class="btn btn-primary" value="Save Recipe"/>
         }
     </div>

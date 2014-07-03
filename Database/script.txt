@@ -1,0 +1,14 @@
+    INSERT INTO DeploymentComponent(project_id, project_description, project_name, release_version, release_id)
+    SELECT X.element.query('ProjectId').value('.', 'VARCHAR(100)'),
+           X.element.query('ProjectDescription').value('.', 'VARCHAR(100)'),
+		   X.element.query('ProjectName').value('.', 'VARCHAR(100)'),
+		   X.element.query('ReleaseVersion').value('.', 'VARCHAR(100)'),
+		   X.element.query('ReleaseId').value('.', 'VARCHAR(100)')
+    FROM (
+    SELECT CAST(x AS XML)
+    FROM OPENROWSET(
+        BULK 'C:\1.xml',
+        SINGLE_BLOB) AS T(x)
+        ) AS T(x)
+
+    CROSS APPLY x.nodes('root/Ingredients/element') AS X(element);

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using OctopusApp.Plumbing;
 
-namespace OctopusApp.Models
+namespace OctopusApp.Models.Interfaces
 {
     public interface IRecipeRepositoryWrapper
     {

@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using OctopusApp.Models;
+using OctopusApp.Models.Interfaces;
 using OctopusApp.Plumbing;
 using OctopusApp.Plumbing.Interfaces;
 
@@ -17,13 +18,13 @@ namespace OctopusApp.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public ViewResult Index()
         {
             return View(_recipeRepository.GetAll());
         }
 
         [HttpGet]
-        public ActionResult NewRecipe()
+        public ViewResult NewRecipe()
         {
             return View(new NewRecipeViewModel(new OctopusRecipe(), _recipeRepository.GetAll()));
         }

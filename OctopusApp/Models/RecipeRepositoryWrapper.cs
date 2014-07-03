@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using OctopusApp.Models.Interfaces;
 using OctopusApp.Plumbing;
 using OctopusApp.Plumbing.Interfaces;
 
@@ -31,6 +32,7 @@ namespace OctopusApp.Models
         public OctopusRecipe PrepareRecipe(OctopusRecipe recipe, List<int> listOfComponentIds)
         {
             recipe.DateCreated = DateTime.Now;
+            if (listOfComponentIds.Count <= 0) return recipe;
             foreach (var component in GetComponentsById(listOfComponentIds))
             {
                 recipe.DeploymentComponents.Add(component);

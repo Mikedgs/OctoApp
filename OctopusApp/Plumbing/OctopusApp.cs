@@ -14,6 +14,7 @@ namespace OctopusApp.Plumbing
     #region Fields
   
     [Column("project_id")]
+    [ValidatePresence]
     private string _projectId;
     [Column("project_name")]
     [ValidatePresence]
@@ -209,6 +210,7 @@ namespace OctopusApp.Plumbing
     [ValidateLength(0, 100)]
     private string _sourceEnvironmentName;
     [Column("date_created")]
+    [ValidatePresence]
     private System.DateTime _dateCreated;
     [Column("created_by")]
     [ValidateLength(0, 50)]

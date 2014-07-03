@@ -103,3 +103,7 @@ body {
 .current-recipes {
     padding-left: 20px;
 }
+
+.error {
+    color: red;
+}
