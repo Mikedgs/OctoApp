@@ -8,5 +8,15 @@ namespace OctopusApp.Models
         public IEnumerable<OctopusRecipe> OctopusRecipes { get; set; }
         public OctopusRecipe OctopusRecipe { get; set; }
         public List<int> ListOfIds { get; set; }
+
+        public NewRecipeViewModel()
+        {
+        }
+
+        public NewRecipeViewModel(OctopusRecipe octopusRecipe, IEnumerable<OctopusRecipe> octopusRecipes)
+        {
+            OctopusRecipe = octopusRecipe;
+            OctopusRecipes = octopusRecipes;
+        }
     }
 }

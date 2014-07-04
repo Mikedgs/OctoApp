@@ -1,6 +1,7 @@
 ﻿var Component = (function () {
     var error = $(".duplicate-error");
     var duplicateErrorMessage = "Component already in recipe";
+    var addToRecipeButton = $('.add-to-recipe');
 
     var addComponentToNewRecipe = function() {
         event.preventDefault();
@@ -16,6 +17,8 @@
     }
 
     return {
+        error: error,
+        addToRecipeButton: addToRecipeButton,
         addComponentToNewRecipe: addComponentToNewRecipe
     };
 })();

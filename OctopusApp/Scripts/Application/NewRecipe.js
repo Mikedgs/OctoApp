@@ -3,7 +3,7 @@
     var listOfComponentsNode = $(".final-list");
 
     var removeComponent = function() {
-        $(".duplicate-error").text("");
+        Component.error.text("");
         var id = $(this).parent().find(".id").text();
         var name = $(this).parent().find(".name").text();
         $(this).parent().remove();
