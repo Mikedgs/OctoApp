@@ -8,8 +8,8 @@
 
 <div class="row">
     <div class="col-md-3">
-        <h2>Currect Recipes</h2>
-        <ul>
+        <h3>Currect Recipes</h3>
+        <ul class="current-recipes">
             @foreach (var recipe in @Model.OctopusRecipes)
             {
                 <li>
@@ -22,41 +22,44 @@
     </div>
 
     <div class="col-md-5">
-        <ul class="component-list">
+        <div class="recipe-accordion component-list">
             @foreach (var recipe in @Model.OctopusRecipes)
             {
-                <li style="display: none" id="@recipe.Id">
-                    <h3>@recipe.Name</h3>
-                    <ul>
-                    @foreach (var component in @recipe.DeploymentComponents)
-                    {
-                        <li>
-                            <span>
-                                <span class="name">@component.ProjectName</span>,
-                                Version: @component.ReleaseVersion
-                                <span style="display: none" class="id">@component.Id</span>
-                            </span>
-                            <a href="#" class="add-to-project">Add</a>
-                            <br/>
-                            <span class="duplicate-error"></span>
-                        </li>
-                    }
+                <h3 style="display: none" id="@recipe.Id">@recipe.Name</h3>
+                <div>
+                    <ul class="recipe-components">
+                        @foreach (var component in @recipe.DeploymentComponents)
+                        {
+                            <li>
+                                <span>
+                                    <span class="name">@component.ProjectName</span>
+                                    <br/>
+                                    <span class="version">Version: @component.ReleaseVersion</span>
+                                    <span style="display: none" class="id">@component.Id</span>
+                                </span>
+                                <a href="#" class="add-to-recipe">Add</a>
+                                <br />
+                                <span class="duplicate-error"></span>
+                            </li>
+                        }
                     </ul>
-                </li>
+                </div>
             }
-        </ul>
+        </div>
     </div>
 
     <div class="col-md-4">
+        <h3>Recipe</h3>
         <ul class="final-list">
-            
+            <li class="component-header"><span class="component-list">Component</span><span class="delete-label">Remove</span></li>
         </ul>
-        @using (@Html.BeginForm("NewRecipe", "Recipe", "POST"))
+        @using (@Html.BeginForm("NewRecipe", "Recipe", FormMethod.Post, new { @class = "new-recipe" }))
         {
-            @Html.LabelFor(x => x.OctopusRecipe.Name) @Html.TextBoxFor(x => x.OctopusRecipe.Name)
-            @Html.LabelFor(x => x.OctopusRecipe.SourceEnvironmentName) @Html.TextBoxFor(x => x.OctopusRecipe.SourceEnvironmentName)
-            @Html.LabelFor(x => x.OctopusRecipe.SourceEnvironmentId) @Html.TextBoxFor(x => x.OctopusRecipe.SourceEnvironmentId)
-            <input type="submit" value="Save Recipe"/>
+            @Html.Label("Name: ") @Html.TextBoxFor(x => x.OctopusRecipe.Name)
+            @Html.Label("Recipe Id: ") @Html.TextBoxFor(x => x.OctopusRecipe.RecipeId)
+            @Html.Label("Source Environment Name: ") @Html.TextBoxFor(x => x.OctopusRecipe.SourceEnvironmentName)
+            @Html.Label("Source Environment Id: ") @Html.TextBoxFor(x => x.OctopusRecipe.SourceEnvironmentId)
+            <input type="submit" class="btn btn-primary" value="Save Recipe"/>
         }
     </div>
 </div>
