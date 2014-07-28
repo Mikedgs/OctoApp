@@ -5,11 +5,14 @@ using System.Linq.Expressions;
 using Mindscape.LightSpeed;
 using Mindscape.LightSpeed.Linq;
 using Mindscape.LightSpeed.Logging;
+using OctopusApp.Plumbing.Interfaces;
 
 namespace OctopusApp.Plumbing
 {
-    public class Repository<T> where T : Entity<int>
+    public class Repository<T> : IRepository<T> where T : Entity<int>
     {
+        private readonly IUnitOfWork _unitOfWork;
+
         public Repository()
         {
             var context = new LightSpeedContext<OctopusAppUnitOfWork>
@@ -23,7 +26,6 @@ namespace OctopusApp.Plumbing
 
             _unitOfWork = context.CreateUnitOfWork();
         }
-        private readonly IUnitOfWork _unitOfWork;
 
         public IList<T> Get(Expression<Func<T, bool>> predicate)
         {

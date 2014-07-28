@@ -1,23 +1,26 @@
-﻿@model IEnumerable<OctopusApp.Plumbing.OctopusRecipe>
+﻿@using OctopusApp.Plumbing
+@model IEnumerable<OctopusRecipe>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Recipes";
 }
 
-<h2>Index</h2>
+<h2>Current Octopus Recipes</h2>
 
-<ul>
+<div id="home-accordion">
     @foreach (var recipe in @Model)
     {
-        <li>
-            Recipe Name: @recipe.Name
-            <br />
-            <ul>
-                @foreach (var ingredient in @recipe.DeploymentComponents)
-                {
-                    <li>@ingredient.ProjectName</li>
-                }
-            </ul>
-        </li>
+        <h3>
+            @recipe.Name
+        </h3>
+        <div>
+            @foreach (var ingredient in @recipe.DeploymentComponents)
+            {
+                <div class="component-row">
+                    <span class="project-name">@ingredient.ProjectName</span>
+                    <span class="release-version">Version: @ingredient.ReleaseVersion</span>
+                </div>
+            }
+        </div>
     }
-</ul>
+</div>
